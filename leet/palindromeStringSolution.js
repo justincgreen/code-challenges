@@ -10,4 +10,4 @@ const isPalindrome = (x) => {
   
 }
 
-isPalindrome(121);
+isPalindrome(0);
