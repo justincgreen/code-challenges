@@ -1,20 +1,29 @@
-// WIP
-const romanToInt = (s) => {
-  const map = new Map();
-  map.set('I', 1);
-  map.set('V', 5);
-  map.set('X', 10);
-  map.set('L', 50);
-  map.set('C', 100);
-  map.set('D', 500);
-  map.set('M', 1000);
-  // console.log(map.size);
+function roman(s) {
+  const map = new Map([
+    ["I", 1],
+    ["V", 5],
+    ["X", 10],
+    ["L", 50],
+    ["C", 100],
+    ["D", 500],
+    ["M", 1000]
+  ]);
   
-  for(let i = 0; i < map.size; i++) {
-    console.log(map[s]);
+  let result = 0;
+  
+  for(let i = 0; i < s.length; i++) {
+    const current = map.get(s[i]);
+    const next = map.get(s[i + 1]);
+    
+    if(current < next) {
+      result += next - current;
+      i++;
+    }else {
+      result += current;
+    }        
   }
   
-  console.log(map.get(s));
+  console.log(result);
 }
 
-romanToInt('I');
+roman("CC");
